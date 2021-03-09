@@ -1,0 +1,34 @@
+@import "../../scss/variables.scss";
+.search {
+  display: flex;
+  align-items: center;
+  height: 2.6vw;
+  width: 30vw;
+  border-radius: 6px;
+
+  input {
+    height: 100%;
+    width: 92%;
+    border: none;
+    padding: 0 1vw;
+    background-color: unset;
+    border-bottom: $grey 1px solid;
+    color: white;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  button {
+    width: 8%;
+    height: 100%;
+    background-image: url("../../assets/svg/search.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: unset;
+    background-size: 80%;
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+  }
+}

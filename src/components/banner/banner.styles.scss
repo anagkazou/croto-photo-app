@@ -1,0 +1,23 @@
+@import "../../scss/variables.scss";
+
+.banner {
+  width: 100vw;
+  height: 50vh;
+
+  background: url("../../assets/img/banner.png");
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+
+  animation: animatedBackground 500s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  /*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: -10000px 0;
+  }
+}

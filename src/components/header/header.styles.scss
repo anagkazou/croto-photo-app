@@ -1,0 +1,16 @@
+@import "../../scss/variables.scss";
+
+.header {
+  height: 12vh;
+  background-color: $black;
+  position: sticky;
+  top: 0;
+  padding: 0 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    max-width: 8vw;
+  }
+}
