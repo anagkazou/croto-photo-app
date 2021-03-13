@@ -17,7 +17,6 @@ class Searchbar extends React.Component {
       searchTerm: value,
     });
     this.props.context.updateValue("searchTerm", value);
-
     console.log(this.props.context.state.searchTerm);
   };
 
