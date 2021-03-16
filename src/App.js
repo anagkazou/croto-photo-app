@@ -3,25 +3,33 @@ import React from "react";
 import Header from "./components/header/header.component";
 import Hero from "./components/hero/hero.component";
 import Banner from "./components/banner/banner.component";
+import { BrowserRouter } from "react-router-dom";
 import SearchResults from "./components/searchResults/searchresults.component";
 import SearchContext from "./searchContext";
 
-import Unsplash, { toJson } from "unsplash-js";
 // import InfiniteScroll from "react-infinite-scroll-component";
 
 import "./scss/main.scss";
+import { createApi } from "unsplash-js";
+
+const unsplash = createApi({
+  accessKey: "Pfh8JlnvQWeWQU_ZLsHRhUE8rF4YE4AN3KAd6mMnUyk",
+});
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchTerm: "",
-      images: [],
+      apiResult: [],
     };
   }
 
-  updateValue = (key, val) => {
-    this.setState({ [key]: val });
+  updateValue = (val) => {
+    this.setState({ searchTerm: val }, () => {
+      this.fetchImages(this.state.searchTerm);
+      console.log(this.state.searchTerm);
+    });
   };
 
   accessKey = "client_id=Pfh8JlnvQWeWQU_ZLsHRhUE8rF4YE4AN3KAd6mMnUyk";
@@ -31,37 +39,42 @@ class App extends React.Component {
   getAPIURL() {
     return this.url;
   }
-  fetchImages = async () => {
-    try {
-      await fetch(this.getAPIURL)
-        .then((resp) => resp.json())
-        .then((data) => data)
-        .then((data) => {
-          this.setState({ image: [...data] });
-          console.log(this.state.images);
-        });
-    } catch (error) {
-      console.error(error);
-    }
+
+  fetchImages = (queryTerm) => {
+    console.log("curernt query:" + queryTerm);
+    unsplash.search
+      .getPhotos({
+        query: `${queryTerm}`,
+        page: 1,
+        perPage: 40,
+      })
+      .then((result) => {
+        if (result.errors) {
+          console.log("error occurred: ", result.errors[0]);
+        } else {
+          const response = result.response;
+
+          this.setState({ apiResult: response.results }, () => {
+            //this.fetchImages(this.state.searchTerm);
+            console.log(this.state.apiResult);
+          });
+        }
+      });
   };
 
-  async componentDidMount() {
-    this.fetchImages();
-  }
   render() {
     return (
-      <SearchContext.Provider
-        value={{ state: this.state, updateValue: this.updateValue }}
-      >
-        <div className="App">
-          <Header />
-          <Hero />
-          <Banner />
-          {this.state.searchTerm === "" ? null : (
-            <SearchResults apidata={this.state.images} />
-          )}
-        </div>
-      </SearchContext.Provider>
+      <BrowserRouter>
+        <SearchContext.Provider
+          value={{ state: this.state, updateValue: this.updateValue }}
+        >
+          <div className="App">
+            <Header />
+            <Hero />
+            <SearchResults apidata={this.state.apiResult} />
+          </div>
+        </SearchContext.Provider>{" "}
+      </BrowserRouter>
     );
   }
 }

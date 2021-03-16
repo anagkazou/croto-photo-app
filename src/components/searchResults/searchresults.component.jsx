@@ -1,64 +1,73 @@
 import React from "react";
-
+import axios from "axios";
+import { Link } from "react-router-dom";
 import "./searchresults.styles.scss";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import SearchContext from "../../searchContext";
-
-// const images = [
-//   "https://picsum.photos/200/300?image=1050",
-//   "https://picsum.photos/300/300?image=206",
-//   "https://picsum.photos/300/300?image=206",
-//   "https://picsum.photos/200/300?image=1050",
-//   "https://picsum.photos/300/300?image=206",
-//   "https://picsum.photos/300/300?image=206",
-//   "https://picsum.photos/300/300?image=206",
-//   "https://picsum.photos/200/300?image=1050",
-//   "https://picsum.photos/300/300?image=206",
-//   "https://picsum.photos/200/300?image=1050",
-//   "https://picsum.photos/300/300?image=206",
-//   "https://picsum.photos/300/300?image=206",
-// ];
+import Banner from "../banner/banner.component";
 
 class SearchResults extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       // searchTerm: this.props.searchTerm,
-      images: this.props.apidata,
+      apiImages: [this.props.apidata],
     };
   }
 
-  // handleChange = (event) => {
-  //   event.preventDefault();
-  //   const { value } = event.target;
-  //   this.setState({
-  //     searchTerm: value,
-  //   });
-  //   this.props.context.updateValue("searchTerm", value);
-  //   console.log(this.props.context.state.searchTerm);
-  // };
+  download(image) {
+    axios
+      .request({
+        url: image.urls.full,
+        method: "GET",
+        responseType: "blob",
+      })
+      .then(({ data }) => {
+        console.log(data);
+        const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.setAttribute("download", "file.png"); //any other extension
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      });
+  }
 
   render() {
-    let { images } = this.state;
+    console.log(this.props.apidata);
+    let { apidata } = this.props;
     return (
-      <SearchContext.Consumer>
-        <div style={{ margin: "2rem" }}>
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 3, 750: 3, 900: 4 }}
-          >
-            <Masonry gutter="10px">
-              {images.map((image) => (
-                <img
-                  // key={i}
-                  src={image.urls.thumb}
-                  style={{ width: "100%", display: "block" }}
-                  alt=""
-                />
-              ))}
-            </Masonry>
-          </ResponsiveMasonry>
-        </div>
-      </SearchContext.Consumer>
+      <>
+        {apidata.length < 2 ? (
+          <Banner />
+        ) : (
+          <div style={{ margin: "1rem" }}>
+            <ResponsiveMasonry
+              columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 3 }}
+            >
+              <Masonry columnsCount={3} gutter="10px">
+                {apidata.map((res) => (
+                  <div className="search-item">
+                    <img
+                      // key={i}
+                      src={res.urls.thumb}
+                      className="search-item__img"
+                      style={{ width: "100%", display: "block" }}
+                      alt=""
+                    />
+                    <button
+                      className="search-item__link"
+                      onClick={() => this.download(res)}
+                    >
+                      <div className="search-item__link--img" />
+                    </button>
+                  </div>
+                ))}
+              </Masonry>
+            </ResponsiveMasonry>
+          </div>
+        )}
+      </>
     );
   }
 }

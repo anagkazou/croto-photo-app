@@ -1,1 +1,32 @@
 @import "../../scss/variables.scss";
+.search-item {
+  position: relative;
+  &__link {
+    position: absolute;
+    bottom: 1vw;
+    width: 3vw;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border: none;
+    right: 1vw;
+  }
+
+  &__link--img {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/svg/arrow_downward.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: unset;
+    background-size: 80%;
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 3;
+  }
+}

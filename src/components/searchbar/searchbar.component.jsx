@@ -13,11 +13,14 @@ class Searchbar extends React.Component {
   handleChange = (event) => {
     event.preventDefault();
     const { value } = event.target;
-    this.setState({
-      searchTerm: value,
-    });
-    this.props.context.updateValue("searchTerm", value);
-    console.log(this.props.context.state.searchTerm);
+    this.setState(
+      {
+        searchTerm: value,
+      },
+      () => {
+        this.props.context.updateValue(this.state.searchTerm);
+      }
+    );
   };
 
   render() {
