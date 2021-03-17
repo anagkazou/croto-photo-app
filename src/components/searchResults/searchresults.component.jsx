@@ -17,7 +17,7 @@ class SearchResults extends React.Component {
   download(image) {
     axios
       .request({
-        url: image.urls.full,
+        url: image.urls.regular,
         method: "GET",
         responseType: "blob",
       })
@@ -25,7 +25,7 @@ class SearchResults extends React.Component {
         console.log(data);
         const downloadUrl = window.URL.createObjectURL(new Blob([data]));
         const link = document.createElement("a");
-        link.href = downloadUrl;
+        link.href = "/#";
         link.setAttribute("download", "file.png"); //any other extension
         document.body.appendChild(link);
         link.click();
@@ -50,7 +50,7 @@ class SearchResults extends React.Component {
                   <div className="search-item">
                     <img
                       // key={i}
-                      src={res.urls.thumb}
+                      src={res.urls.small}
                       className="search-item__img"
                       style={{ width: "100%", display: "block" }}
                       alt=""

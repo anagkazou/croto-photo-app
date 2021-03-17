@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "./mixins.scss";
 
 h1 {
   font-size: 3.6vw;
@@ -6,4 +7,15 @@ h1 {
   text-align: center;
   line-height: 120%;
   margin-bottom: 2vw;
+
+  @include respond(tab-port) {
+    font-size: 4.2vw;
+    width: 65%;
+    margin-bottom: 4vw;
+  }
+  @include respond(phone) {
+    font-size: 7.2vw;
+    width: 85%;
+    margin-bottom: 7vw;
+  }
 }

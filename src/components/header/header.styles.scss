@@ -1,7 +1,9 @@
 @import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
 
 .header {
   height: 12vh;
+  width: 100vw;
   background-color: $black;
   position: sticky;
   top: 0;
@@ -10,8 +12,17 @@
   justify-content: space-between;
   align-items: center;
   z-index: 3;
-
+  @include respond(phone) {
+    padding: 0 4vw;
+  }
   &__logo {
-    max-width: 8vw;
+    width: 6vw;
+    height: auto;
+    @include respond(tab-port) {
+      width: 10vw;
+    }
+    @include respond(phone) {
+      width: 18vw;
+    }
   }
 }

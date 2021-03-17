@@ -1,9 +1,10 @@
 @import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
 .search {
   display: flex;
   align-items: center;
-  height: 2.6vw;
-  width: 30vw;
+  height: 3.6vw;
+  width: 40vw;
   border-radius: 6px;
 
   input {
@@ -16,6 +17,9 @@
     color: white;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+    @include respond(phone) {
+      font-size: 5vw;
+    }
   }
 
   button {
@@ -30,5 +34,17 @@
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     cursor: pointer;
+    @include respond(phone) {
+      width: 10%;
+    }
+  }
+
+  @include respond(tab-port) {
+    height: 4.6vw;
+    width: 55vw;
+  }
+  @include respond(phone) {
+    width: 85vw;
+    height: 8vw;
   }
 }

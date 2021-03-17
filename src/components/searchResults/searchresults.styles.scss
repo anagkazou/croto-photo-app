@@ -1,6 +1,13 @@
 @import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
 .search-item {
   position: relative;
+
+  &:hover {
+    .search-item__link {
+      opacity: 1;
+    }
+  }
   &__link {
     position: absolute;
     bottom: 1vw;
@@ -9,9 +16,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    background-color: #ffffff;
     border: none;
+    border-radius: 4px;
+    opacity: 0;
     right: 1vw;
+
+    @include respond(tab-port) {
+      opacity: 1;
+      width: 8vw;
+      height: 8vw;
+    }
+    @include respond(tab-port) {
+      opacity: 1;
+      width: 4vw;
+      height: 4vw;
+    }
+    @include respond(phone) {
+      width: 8vw;
+      height: 8vw;
+    }
+  }
+  &__img {
+    border-radius: 6px;
   }
 
   &__link--img {
@@ -23,8 +50,7 @@
     background-color: unset;
     background-size: 80%;
     border: none;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+
     cursor: pointer;
     position: absolute;
     z-index: 3;
