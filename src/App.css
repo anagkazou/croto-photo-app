@@ -4,7 +4,7 @@ a {
 }
 
 html{
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .App {
   position: relative;
