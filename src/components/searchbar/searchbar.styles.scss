@@ -15,6 +15,7 @@
     background-color: unset;
     border-bottom: $grey 1px solid;
     color: white;
+    font-size: 1.4vw;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     @include respond(phone) {
