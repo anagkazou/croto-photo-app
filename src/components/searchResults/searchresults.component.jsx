@@ -56,6 +56,14 @@ class SearchResults extends React.Component {
                       style={{ width: "100%", display: "block" }}
                       alt=""
                     />
+                    <div className="user">
+                      <img
+                        src={res.user.profile_image.small}
+                        alt=""
+                        className="user__img"
+                      />
+                      <p className="user__name">{res.user.name}</p>{" "}
+                    </div>
                     <button
                       className="search-item__btn"
                       onClick={() => this.download(res)}

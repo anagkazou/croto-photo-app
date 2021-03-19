@@ -7,10 +7,21 @@
     .search-item__btn {
       opacity: 1;
     }
+
+    .user {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    transition: all ease 0.3s;
+    &:hover {
+      filter: brightness(60%);
+    }
   }
   &__btn {
     position: absolute;
-    bottom: 1vw;
+    bottom: 1rem;
     width: 3vw;
     height: 3vw;
     display: flex;
@@ -54,5 +65,19 @@
     color: #3a3a3a;
     width: 40%;
     height: 2rem;
+  }
+
+  .user {
+    position: absolute;
+    bottom: 1rem;
+    left: 1vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    &__img {
+      border-radius: 50%;
+      margin-right: 5px;
+    }
   }
 }
