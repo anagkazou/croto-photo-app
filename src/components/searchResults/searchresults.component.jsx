@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import "./searchresults.styles.scss";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Banner from "../banner/banner.component";

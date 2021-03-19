@@ -34,7 +34,7 @@ class Searchbar extends React.Component {
           placeholder="Search"
           onChange={this.handleChange}
         />
-        <button type="submit" />
+        <button type="submit" onClick={this.handleChange} />
       </div>
     );
   }

@@ -19,14 +19,4 @@ const Hero = (props) => {
   );
 };
 
-// const withContext = (Component) => {
-//   return (props) => {
-//       <MyContext.Consumer>
-//            {(context) => {
-//               return <Component {...props} context={context} />
-//            }}
-//       </MyContext.Consumer>
-//   }
-// }
-
 export default Hero;
