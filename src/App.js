@@ -2,7 +2,6 @@ import "./App.css";
 import React from "react";
 import Header from "./components/header/header.component";
 import Hero from "./components/hero/hero.component";
-import Banner from "./components/banner/banner.component";
 import { BrowserRouter } from "react-router-dom";
 import SearchResults from "./components/searchResults/searchresults.component";
 import SearchContext from "./searchContext";
@@ -73,7 +72,7 @@ class App extends React.Component {
             <Hero />
             <SearchResults apidata={this.state.apiResult} />
           </div>
-        </SearchContext.Provider>{" "}
+        </SearchContext.Provider>
       </BrowserRouter>
     );
   }
