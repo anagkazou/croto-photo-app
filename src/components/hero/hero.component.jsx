@@ -10,7 +10,7 @@ const Hero = (props) => {
       {(context) => (
         <div className="hero">
           <h1 className="hero__text">
-            Free images and videos for your creative needs.
+            Free stock images for your creative needs.
           </h1>
           <Searchbar {...props} context={context} />
         </div>
