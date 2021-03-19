@@ -22,7 +22,7 @@ class SearchResults extends React.Component {
       })
       .then(({ data }) => {
         console.log(data);
-        const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+        //const downloadUrl = window.URL.createObjectURL(new Blob([data]));
         const link = document.createElement("a");
         link.href = "/#";
         link.setAttribute("download", "file.png"); //any other extension
@@ -40,11 +40,11 @@ class SearchResults extends React.Component {
         {apidata.length < 2 ? (
           <Banner />
         ) : (
-          <div style={{ margin: "1rem" }}>
+          <div style={{ margin: "2rem" }}>
             <ResponsiveMasonry
               columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 3 }}
             >
-              <Masonry columnsCount={3} gutter="10px">
+              <Masonry columnsCount={3} gutter="20px">
                 {apidata.map((res) => (
                   <div className="search-item">
                     <img
