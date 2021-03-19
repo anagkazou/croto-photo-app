@@ -23,6 +23,20 @@ class Searchbar extends React.Component {
     );
   };
 
+  handleSubmit = () => {
+    let value = document.getElementById("search-text").value;
+    console.log(" Hereeeeee" + document.getElementById("search-text").value);
+    this.setState(
+      {
+        searchTerm: value,
+      },
+      () => {
+        this.props.context.updateValue(this.state.searchTerm);
+        console.log(this.state.searchTerm);
+      }
+    );
+  };
+
   render() {
     return (
       <div className="search">
@@ -34,7 +48,7 @@ class Searchbar extends React.Component {
           placeholder="Search"
           onChange={this.handleChange}
         />
-        <button type="submit" onClick={this.handleChange} />
+        <button type="submit" onClick={this.handleSubmit} />
       </div>
     );
   }
