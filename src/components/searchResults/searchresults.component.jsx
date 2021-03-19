@@ -10,6 +10,7 @@ class SearchResults extends React.Component {
     this.state = {
       // searchTerm: this.props.searchTerm,
       apiImages: [this.props.apidata],
+      displayDownloadBtnMobile: window.innerWidth > 480 ? "none" : "block",
     };
   }
 
@@ -25,7 +26,7 @@ class SearchResults extends React.Component {
         //const downloadUrl = window.URL.createObjectURL(new Blob([data]));
         const link = document.createElement("a");
         link.href = "/#";
-        link.setAttribute("download", "file.png"); //any other extension
+        link.setAttribute("download", "file.png");
         document.body.appendChild(link);
         link.click();
         link.remove();
@@ -33,18 +34,19 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    console.log(this.props.apidata);
+    const { apiImages, displayDownloadBtnMobile } = this.state;
+    console.log(displayDownloadBtnMobile);
     let { apidata } = this.props;
     return (
       <>
         {apidata.length < 2 ? (
           <Banner />
         ) : (
-          <div style={{ margin: "2rem" }}>
+          <div style={{ margin: "3vw" }}>
             <ResponsiveMasonry
-              columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 3 }}
+              columnsCountBreakPoints={{ 350: 1, 750: 3, 900: 3 }}
             >
-              <Masonry columnsCount={3} gutter="20px">
+              <Masonry columnsCount={3} gutter="2vw">
                 {apidata.map((res) => (
                   <div className="search-item">
                     <img
@@ -55,10 +57,17 @@ class SearchResults extends React.Component {
                       alt=""
                     />
                     <button
-                      className="search-item__link"
+                      className="search-item__btn"
                       onClick={() => this.download(res)}
                     >
-                      <div className="search-item__link--img" />
+                      <div className="search-item__btn--img" />
+                    </button>
+                    <button
+                      className="search-item__btn-text"
+                      style={{ display: `${displayDownloadBtnMobile} ` }}
+                      onClick={() => this.download(res)}
+                    >
+                      Download
                     </button>
                   </div>
                 ))}
