@@ -111,6 +111,9 @@
           @include respond(tab-port) {
             font-size: 2vw;
           }
+          @include respond(tab-port) {
+            font-size: 3.6vw;
+          }
         }
       }
       @include respond(tab-port) {
