@@ -11,12 +11,26 @@
     .user {
       opacity: 1;
     }
+
+    @include respond(tab-port) {
+      all: unset;
+    }
   }
 
+  @include respond(tab-port) {
+    .search-item__mobile {
+      display: flex;
+      margin: 0.4rem 0;
+    }
+  }
   &__img {
     transition: all ease 0.3s;
     &:hover {
       filter: brightness(60%);
+
+      @include respond(phone) {
+        all: unset;
+      }
     }
   }
   &__btn {
@@ -33,9 +47,7 @@
     right: 1vw;
 
     @include respond(tab-port) {
-      opacity: 1;
-      width: 4vw;
-      height: 4vw;
+      display: none;
     }
     @include respond(phone) {
       width: 8vw;
@@ -75,9 +87,35 @@
     display: flex;
     align-items: center;
     opacity: 0;
+
     &__img {
       border-radius: 50%;
       margin-right: 5px;
+    }
+    @include respond(tab-port) {
+      &__text {
+        font-size: 1vw;
+      }
+    }
+
+    &__desktop {
+    }
+
+    &__mobile {
+      display: none;
+      align-items: center;
+      width: 60%;
+      .user {
+        &__name {
+          font-size: 4vw;
+          @include respond(tab-port) {
+            font-size: 2vw;
+          }
+        }
+      }
+      @include respond(tab-port) {
+        display: flex;
+      }
     }
   }
 }

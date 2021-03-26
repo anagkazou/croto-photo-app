@@ -10,7 +10,7 @@ class SearchResults extends React.Component {
     this.state = {
       // searchTerm: this.props.searchTerm,
       apiImages: [this.props.apidata],
-      displayDownloadBtnMobile: window.innerWidth > 480 ? "none" : "block",
+      displayDownloadBtnMobile: window.innerWidth < 900 ? "block" : "none",
     };
   }
 
@@ -35,7 +35,7 @@ class SearchResults extends React.Component {
 
   render() {
     const { apiImages, displayDownloadBtnMobile } = this.state;
-    console.log(displayDownloadBtnMobile);
+    console.log(window.innerWidth);
     let { apidata } = this.props;
     return (
       <>
@@ -56,7 +56,7 @@ class SearchResults extends React.Component {
                       style={{ width: "100%", display: "block" }}
                       alt=""
                     />
-                    <div className="user">
+                    <div className="user user__desktop">
                       <img
                         src={res.user.profile_image.small}
                         alt=""
@@ -70,13 +70,23 @@ class SearchResults extends React.Component {
                     >
                       <div className="search-item__btn--img" />
                     </button>
-                    <button
-                      className="search-item__btn-text"
-                      style={{ display: `${displayDownloadBtnMobile} ` }}
-                      onClick={() => this.download(res)}
-                    >
-                      Download
-                    </button>
+                    <div className="search-item__mobile">
+                      <div className="user__mobile">
+                        <img
+                          src={res.user.profile_image.small}
+                          alt=""
+                          className="user__img"
+                        />
+                        <p className="user__name">{res.user.name}</p>{" "}
+                      </div>
+                      <button
+                        className="search-item__btn-text"
+                        style={{ display: `${displayDownloadBtnMobile} ` }}
+                        onClick={() => this.download(res)}
+                      >
+                        Download
+                      </button>
+                    </div>
                   </div>
                 ))}
               </Masonry>
