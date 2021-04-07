@@ -45,7 +45,6 @@ Consuming the Unsplash API, the Croto app is a tool for creators like you; makin
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [React](https://reactjs.org)
 * [SASS](https://sass-lang.com)
 * [Context API](https://reactjs.org/docs/context.html)
@@ -58,7 +57,6 @@ This section should list any major frameworks that you built your project using.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
@@ -81,11 +79,6 @@ This is an example of how to list things you need to use the software and how to
    ```
 
 
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 
 
