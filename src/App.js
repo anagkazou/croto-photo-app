@@ -12,7 +12,7 @@ import "./scss/main.scss";
 import { createApi } from "unsplash-js";
 
 const unsplash = createApi({
-  accessKey: "Pfh8JlnvQWeWQU_ZLsHRhUE8rF4YE4AN3KAd6mMnUyk",
+  accessKey: "",
 });
 
 class App extends React.Component {
