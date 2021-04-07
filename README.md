@@ -1,75 +1,124 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- PROJECT LOGO -->
+<br />
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](https://github.com/DavidOmole/project-readme/blob/136aa6e05d42e3aafd05d10e0728486f50f2227c/Croto%20-%20Opera%202021-03-29%2011-41-b.gif)
+<br/>
+<p align="center">
+  
+ 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  <p align="center">
+    <br />
+    <br />
+    <a href="https://croto.netlify.app">View Demo</a>
+    ·
+    <a href="https://github.com/DavidOmole/croto-photo-app/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/DavidOmole/croto-photo-app/issues">Request Feature</a>
+  </p>
+</p>
+<br/>
+<!-- ABOUT THE PROJECT -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## About The Project
+Consuming the Unsplash API, the Croto app is a tool for creators like you; making getting free stock images easy peasy.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Built With
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+* [React](https://reactjs.org)
+* [SASS](https://sass-lang.com)
+* [Context API](https://reactjs.org/docs/context.html)
+* [Unsplash API](https://unsplash.com/documentation)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- GETTING STARTED -->
+## Getting Started
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-### Analyzing the Bundle Size
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Get a free API Key at [Unsplash](https://unsplash.com/developers)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/DavidOmole/croto-photo-app.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `app.js`
+   ```JS
+   const unsplash = createApi({  accessKey: ""});
+   ```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+<!-- USAGE EXAMPLES -->
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# stock-photo-gallery
-A stock photo resource that is powered by the Unsplash API, built with ReactJS and Redux.
->>>>>>> 1187e1d4b5ccba300e609a6a30975b77dc9ee109
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/CoolFeature`)
+3. Commit your Changes (`git commit -m 'Add some CoolFeature'`)
+4. Push to the Branch (`git push origin feature/CoolFeature`)
+5. Open a Pull Request
+
+
+
+
+
+
+
+<!-- CONTACT -->
+## Contact
+
+David Omole - [Twitter](https://twitter.com/daavidjs) - thedavidomole@gmail.com
+
+Project Link: [Croto Photo App](https://github.com/DavidOmole/croto-photo-app)
+
+
+
+
+
+
+
+
